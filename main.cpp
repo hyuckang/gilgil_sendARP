@@ -1,17 +1,3 @@
-/*
-    === Ethernet ===
-    Dst MAC : 희생자의 MAC
-    Src MAC : 내 MAC
-    Protocol : 0x0806(ARP)
-
-    === ARP ===
-
-    Operation : ARP Reply
-    Sender MAC : 내 MAC
-    Sender IP : gateWay IP
-    Target MAC : 희생자 MAC
-    Target IP : 희생자 IP
-*/
 #include "initheader.h"
 #include <pcap.h>
 #include <stdio.h>
