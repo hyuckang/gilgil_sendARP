@@ -1,5 +1,6 @@
 # gilgil_sendARP
 APR Spoofing의 전 단계인 send ARP이다.
+
 ARP Spoofing이 되기 위해서는 패킷을 릴레이까지 해주어야하기 때문에 send ARP는 ARP Spoofing이 아니다.
  
 send_ARP eth0 192.168.10.2 192.168.10.1 으로 실행하게 되면
