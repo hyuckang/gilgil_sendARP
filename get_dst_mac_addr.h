@@ -1,8 +1,7 @@
 #pragma once
 #include "initheader.h"
 #include <pcap.h>
-#include <stdio.h>
-#include <stdint.h>
+
 
 /* resolution IP to MAC  */
 void get_dst_mac_addr(u_char* send_mac,u_char* send_ip, u_char* dst_MAC_store,u_char* target_ip, pcap_t* handle);

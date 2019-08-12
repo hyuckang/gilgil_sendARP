@@ -1,9 +1,5 @@
 #pragma once
 #include "initheader.h"
-#include <arpa/inet.h>
-#include "arp_packet_format.h"
-#include "ethernet_header.h"
-#include <stdlib.h>
 
 u_char* arp_packet_maker(u_char* send_mac, u_char* send_ip, u_char* target_mac, u_char* target_ip, u_int16_t op_code);
 

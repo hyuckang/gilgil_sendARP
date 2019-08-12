@@ -1,7 +1,5 @@
 #include "initheader.h"
 #include <pcap.h>
-#include <stdio.h>
-#include <stdint.h>
 
 void usage() {
     printf("syntax: send_arp <interface> <sender ip> <target ip>\n");
