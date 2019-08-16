@@ -1,13 +1,18 @@
 /* Reference : https://stackoverflow.com/questions/1779715/how-to-get-mac-address-of-your-machine-using-a-c-program */
 #pragma once
-#include "initheader.h"
+#include "init.h"
 
 /* return my MAC Address */
-void get_my_mac_addr(u_char* mac_address);
+void get_my_mac_addr(char* interface_name, u_char* store_mac_address_array);
 
-void get_my_mac_addr(u_char* mac_address){
+void get_my_mac_addr(char* interface, u_char* mac_address){
     struct ifreq ifr;
     struct ifconf ifc;
+
+    /* interface name copy  */
+    int if_name_size = strlen(interface);
+    strncpy(ifr.ifr_name, interface, if_name_size+1);
+
     char buf[1024];
     int success = 0;
 
@@ -23,7 +28,6 @@ void get_my_mac_addr(u_char* mac_address){
 
 
     for (; it != end; ++it) {
-        strcpy(ifr.ifr_name, it->ifr_name);
         if (ioctl(sock, SIOCGIFFLAGS, &ifr) == 0) {
             if (! (ifr.ifr_flags & IFF_LOOPBACK)) { // don't count loopback
                 if (ioctl(sock, SIOCGIFHWADDR, &ifr) == 0) {
@@ -35,7 +39,8 @@ void get_my_mac_addr(u_char* mac_address){
         else { /* handle error */ }
     }
 
-    if (success) memcpy(mac_address, ifr.ifr_hwaddr.sa_data,6);
+    /* Copy the mac address of a specific interface */
+    if (success) memcpy(mac_address, ifr.ifr_hwaddr.sa_data, sizeof(u_char)*6);
 
     return;
 }

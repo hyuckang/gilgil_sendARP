@@ -13,6 +13,14 @@
 #include "ethernet_header.h"
 #include "get_my_mac_addr.h"
 #include "arp_packet_format.h"
-#include "arp_packet_maker.h"
-#include "get_dst_mac_addr.h"
+#include "arp_request_maker.h"
+#include "arp_reply_maker.h"
+#include "send_arp.h"
+
+void usage();
+void usage(){
+    printf("syntax error!\n");
+    printf("syntax : send_arp <interface> <sender ip> <target ip>\n");
+    printf("example : send_arp eth0 192.168.10.5 192.168.10.1\n");
+}
 

@@ -1,12 +1,13 @@
 #pragma once
-#include "initheader.h"
+#include "init.h"
 
-#define ETH_P_ARP 0x0608    /* Address Resolution packet */
+#define ether_type_ARP 0x0806    /* Address Resolution packet */
+#define ether_type_IPv4 0x0800
 #define ETHER_ADDR_LEN  6   /* MAC Address Size */
 
-/* Ethernet frame header */
-typedef struct {
+/* Ethernet format */
+struct ETHER_HEADER{
     uint8_t dst_addr[ETHER_ADDR_LEN]; /* Destination hardware address */
     uint8_t src_addr[ETHER_ADDR_LEN];  /* Source hardware address */
-    uint16_t frame_type = ETH_P_ARP;   /* ARP */
-}ether_hdr;
+    uint16_t ether_type;   /* ehter type */
+};
