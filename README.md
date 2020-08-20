@@ -1,4 +1,4 @@
-# gilgil_sendARP
+# sendARP
 APR Spoofing의 전 단계인 send ARP이다.
 
 ARP Spoofing이 되기 위해서는 패킷을 릴레이까지 해주어야하기 때문에 send ARP는 ARP Spoofing이 아니다.
